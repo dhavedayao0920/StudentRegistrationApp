@@ -35,6 +35,21 @@ namespace StudentRegistrationApp.Entities
       }
     }
 
+    private string _MiddleName;
+
+    public string MiddleName
+    {
+      get
+      {
+        return _MiddleName;
+      }
+      set
+      {
+        _MiddleName = value;
+        OnPropertyChanged(nameof(MiddleName));
+      }
+    }
+
     private string _LastName;
 
     public string LastName
@@ -68,17 +83,44 @@ namespace StudentRegistrationApp.Entities
     {
       get
       {
-
         // Save today's date.
         var today = DateTime.Today;
         // Calculate the age.
         var age = today.Year - Birthday.Year;
         // Go back to the year the person was born in case of a leap year
         if (Birthday > today.AddYears(-age)) age--;
-        
-        return age;
 
+        return age;
       }     
+    }
+    private string _TelNum;
+
+    public string TelNum
+    {
+      get 
+      {
+        return _TelNum;
+      }
+      set
+      {
+        _TelNum = value;
+        OnPropertyChanged(nameof(TelNum));
+      }
+    }
+
+    private string _PropAddress;
+
+    public string PropAddress
+    {
+      get
+      {
+        return _PropAddress;
+      }
+      set
+      {
+        _PropAddress = value;
+        OnPropertyChanged(nameof(PropAddress));
+      }
     }
   }
 }
