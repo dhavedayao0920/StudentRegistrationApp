@@ -12,7 +12,8 @@ namespace StudentRegistrationApp.Data
     public List<Student> _StudentList = new List<Student>();
     public DummyStudentRepository()
     {
-      _StudentList.Add(new Student() { FirstName = "Dhave", LastName = "Dayao" });
+      _StudentList.Add(new Student() { FirstName = "Dhave", LastName = "Dayao" , Birthday = new DateTime (1989, 9, 20) });
+
     }
 
     public void AddStudent(Student student)

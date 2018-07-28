@@ -49,5 +49,37 @@ namespace StudentRegistrationApp.Entities
         OnPropertyChanged(nameof(LastName));
       }
     }
+    private DateTime _Birthday;
+
+    public DateTime Birthday
+    {
+      get
+      {
+        return _Birthday;
+      }
+      set
+      {
+        _Birthday = value;
+        OnPropertyChanged(nameof(Birthday));
+        OnPropertyChanged(nameof(Age));
+      }
+    }
+    public int Age
+    {
+      get
+      {
+
+        // Save today's date.
+        var today = DateTime.Today;
+        // Calculate the age.
+        var age = today.Year - Birthday.Year;
+        // Go back to the year the person was born in case of a leap year
+        if (Birthday > today.AddYears(-age)) age--;
+        
+        return age;
+
+      }     
+    }
   }
 }
+
